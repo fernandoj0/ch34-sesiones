@@ -1,3 +1,20 @@
+/* este es un comentario en CSS */
+*{
+    background-color: cornflowerblue;
+}
+
+/* Selectores de tipo 
+Selecciona todos los elementos con este nombre */
+
+h1{
+    font-family: 'Mulish', sans-serif;
+}
+
+p {
+    font-family: 'Mulish', sans-serif;
+}
+
+/*
 body {
     background-color: cornflowerblue;
 }
@@ -9,3 +26,4 @@ p {
 p {
     color: red;
 }
+*/
