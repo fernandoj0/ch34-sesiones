@@ -14,6 +14,23 @@ p {
     font-family: 'Mulish', sans-serif;
 }
 
+table {
+    border: 3px dashed green;
+    border-spacing: 4px;
+}
+
+.tamales-header-items {
+    border:4px solid blue;
+    /* border-right: 5px solid purple;
+    border-left: 6px solid yellow;
+    border-top: 3px dashed pink;
+    border-bottom: 4px dotted white; */
+}
+
+td{
+    border: 2px solid red;
+}
+
 /*
 body {
     background-color: cornflowerblue;
