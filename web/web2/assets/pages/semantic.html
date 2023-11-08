@@ -4,41 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Semántico</title>
+    <link rel="stylesheet" href="../styles/semantic.css">
 </head>
 <body>
     <header>
         <h1> Tamales y atoles "Los 3 tamalitos" </h1>
-        <nav>
-            <ul>
-              <li><a target="_self" href="/index.html">Home</a></li>
-              <li><a target="_blank" href="https://lenguajehtml.com/html/introduccion/tabla-periodica-html5/">About</a></li>
-              <li><a href="/assets/pages/contact.html">Contact</a></li>
-            </ul>
-          </nav>
     </header>
-    <main>
-      <section>
-        <h2>Conoce la historia de "Los 3 tamalitos"</h2>
-        <article>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit quos exercitationem vero dicta atque officia nisi vitae, possimus eius quia eum facere deleniti deserunt unde! Quae nisi est reiciendis provident!
-          Aut fugiat adipisci tempore sapiente, eius expedita laborum laudantium ducimus at tempora tenetur minus iure quas! Eaque rerum, blanditiis repudiandae corrupti, tempora sint tempore provident, laudantium earum animi commodi ullam.
-        </article>
-        <img src="https://static.vecteezy.com/system/resources/previews/026/773/538/non_2x/tamale-with-ai-generated-free-png.png" width="150px" height="100px" alt="tamalitos">
-      </section>
 
-      <section>
-        <h3>Conocer nuestras sucursales</h3>
-        <article>
-          <ul>
-            <li><a href="https://www.google.com/maps/place/Ciudad+L%C3%B3pez+Mateos,+State+of+Mexico/@19.51776,-99.4557394,11z/data=!3m1!4b1!4m6!3m5!1s0x85d21c8702d3fbff:0xc55a6bfc82e7c8e0!8m2!3d19.5562275!4d-99.2674713!16zL20vMGdqeHg5?entry=ttu">Sucursal de Atizapan de Zaragoza</a></li>
-            <li><a href="https://www.google.com/maps/place/La+Marquesa,+State+of+Mexico/@19.3001248,-99.3756343,15z/data=!3m1!4b1!4m6!3m5!1s0x85cdf7897e4b92cf:0xd67d5465396d8c67!8m2!3d19.2986112!4d-99.3686111!16s%2Fg%2F1hl3hn9zt?entry=ttu">Sucursal de La Magdalena Contreras</a></li>
-            <li><a href="https://www.google.com/maps/place/Coyoac%C3%A1n,+Mexico+City,+CDMX/@19.3282026,-99.1524141,13z/data=!3m1!4b1!4m6!3m5!1s0x85ce002e11342fc3:0x9a2667d831d4e080!8m2!3d19.3437444!4d-99.1561883!16zL20vMDF0OG40?entry=ttu">Sucursal Coyoacán</a></li>
-          </ul>
-        </article>
-      </section>
+    <nav class="nav-links">
+         <a href="/index.html" target="_self" class="links">Inicio</a>
+
+         <a href="https://lenguajehtml.com/html/introduccion/tabla-periodica-html5/" target="_blank" class="links">Nosotros</a>
+
+        <a href="/assets/pages/contact.html" class="links">Contacto</a>
+    </nav>
+
+    <main>
+        <section>
+            <h2> Conoce la historia de "Los 3 tamalitos"</h2>
+            <article>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est similique, accusantium adipisci qui ut odit cum dolor nulla deleniti, nisi, impedit delectus magnam? Consectetur unde, ut soluta illo dolores sapiente!
+                Culpa ratione recusandae quod quasi in consequatur rerum quibusdam consequuntur dolore pariatur magnam debitis aut, ex, tempore reiciendis commodi saepe animi inventore mollitia nostrum quia cumque. Laborum odit dolore blanditiis.
+                Temporibus recusandae inventore soluta vitae unde quibusdam quo illum, expedita enim. Aut minus voluptas recusandae, dicta quam reiciendis? Inventore tenetur et modi autem id maxime laborum sequi, quia mollitia voluptatem.</p>
+                
+            </article>
+        </section>
+
+        <section>
+          <h2> Conoce nuestros productos </h2>
+          <article id="cards-section">
+            
+          </article>
+        </section>
+
+        <section>
+            <h3> Conoce nuestras sucursales </h3>
+            <article>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas eius saepe ea perferendis maxime eos a earum veritatis et cupiditate ullam dolore voluptas architecto laboriosam cum, harum accusamus similique? Quisquam?
+                Possimus autem nulla maxime officiis ipsam tenetur consequatur cupiditate deleniti aut corporis amet, dolorum laborum veritatis omnis accusantium, repellat saepe. Laboriosam magni, voluptatum optio voluptatibus veniam ut expedita rem qui.
+
+                <ul>
+                    <li><a href="https://www.google.com.mx/maps/place/Cd+L%C3%B3pez+Mateos,+M%C3%A9x./@19.5178347,-99.2909274,12z/data=!3m1!4b1!4m6!3m5!1s0x85d21c8702d3fbff:0xc55a6bfc82e7c8e0!8m2!3d19.5562275!4d-99.2674713!16zL20vMGdqeHg5?entry=ttu"> Sucursal Atizapán de Zaragoza</a></li>
+                    <li> <a href="https://www.google.com.mx/maps/place/La+Magdalena+Contreras,+CDMX/@19.2755476,-99.3061862,13z/data=!3m1!4b1!4m6!3m5!1s0x85cdff9fd6a04461:0x4c72ca8233c846d4!8m2!3d19.3149641!4d-99.2425886!16zL20vMDI0c2Q2?entry=ttu"> Sucursal Magdalena Contreras</a></li>
+                    <li> <a href="https://www.google.com.mx/maps/place/Coyoac%C3%A1n,+Ciudad+de+M%C3%A9xico,+CDMX/@19.328267,-99.2303541,13z/data=!3m1!4b1!4m6!3m5!1s0x85ce002e11342fc3:0x9a2667d831d4e080!8m2!3d19.3437444!4d-99.1561883!16zL20vMDF0OG40?entry=ttu"> Sucursal Coyoacán</a></li>
+                </ul>
+
+            </article>
+        </section>
+
     </main>
-    <footer>
-      Hecho con 💚 y algo de premura por la CH34. 
-    </footer>
+<footer> Hecho con 💚 y algo de premura por la CH34 </footer>
 </body>
 </html>

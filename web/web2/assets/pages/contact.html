@@ -11,23 +11,90 @@
   </header>
   <main>
     <section>
-      <form action="" method=""> <!-- en action se coloca la url a donde va a ir la info --> <!-- en method agregamos el tipo de metodo http que utilizaremos -->
-      </form>
+      <form action="https://formsubmit.co/fernandojs459@gmail.com" method="POST"> <!-- en action se coloca la url a donde va a ir la info --> <!-- en method agregamos el tipo de metodo http que utilizaremos -->
       <fieldset> <!-- permite agrupar por campos -->
         <legend> Datos básicos de contacto </legend>
-        Nombre: <input type="text" placeholder="Nancy" />
+        Nombre: <input type="text" placeholder="Nancy" name="name"/>
+
         <br>
-        Apellido: <input type="text" placeholder="Moreno" />
+
+        Apellido: <input type="text" placeholder="Moreno" name="last-name"/>
+
         <br>
-        Correo: <input type="email" placeholder="correo@dominio.com" />
+
+        Correo: <input type="email" placeholder="correo@dominio.com" name="email"/>
+
         <br>
+
+        Telefono:<input type="tel" placeholder="4445153596" name="email">
+
+        <br>
+    
         <input type="submit">
+
         <br>
         <button type="sumbit">Enviar ya</button>
       </fieldset>
+
+      <fieldset>
+
+        <legend>Datos del pedido</legend>
+        Número de tamales: <input type="number" min="30" max="300" 
+        required/> 
+
+        <br>
+
+        Litros de atole: <input type="number" min="3" max="50"/>
+        <br>
+
+        Fecha del evento: <input type="date" required>
+      </fieldset>
+
+      <fieldset>
+        <legend>Datos del envío</legend>
+
+        <select name="stores" id="stores">
+          <option value="Sucursal-Atizapan">Sucursal Atizapan de Zaragoza</option>
+          <option value="Sucursal-Ecatepec">Sucursal Ecatepec</option>
+          <option value="Sucursal-Coyoacan">Sucursal Coyoacan</option>
+          <option value="Sucursal-La-Magdalena-Contreras">Sucursal La Magdalena Contreras</option>
+        </select>
+
+        <br/>
+
+          <input list="branch">
+          <datalist id="branch">
+            <option value="Sucursal-Atizapan">Sucursal Atizapan</option>
+            <option value="Sucursal-Ecatepec">Sucursal Ecatepec</option>
+            <option value="Sucursal-Coyoacan">Sucursal Coyoacan</option>
+            <option value="Sucursal-La-Magdalena-Contreras">Sucursal La Magdalena Contreras</option>
+          </datalist>
+
+          <br>
+
+          <label for="pick-up">
+            <input type="radio" id="pick-up" name="type-of-delivery"> Recoger en sucursal
+          </label>
+
+          <label for="delivery">
+            <input id="delivery" type="radio" name="type-of-delivery"> Envío a domicilio
+          </label>
+         
+          <br/>
+
+          <input type="checkbox" required/>Acepto los términos y condiciones
+          <br>
+          <button type="sumit"> Amonos recio con los tamales
+          </button>
+      </fieldset>
+    </form>
     </section>
+    
   </main>
+
   <footer>
   </footer>
+  
+
 </body>
 </html>

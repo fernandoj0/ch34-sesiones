@@ -1,0 +1,52 @@
+/* Se establecen variables */
+:root{
+    --blue1:#6495ed;
+    --blue2:#afeeee;
+}
+
+/* Reiniciar los estilos que vienen por defecto del navegador
+Box-sizing (tamaño de caja) Establece cómo se calcula el ancho y altyo de un elemento*/
+
+html{
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after{
+    box-sizing: inherit;
+}
+
+/* Propiedad display: tiene que ver con elementos en linea y bloque. 
+Block, inline */
+
+body{
+    /* Fondo con degradado lineal  */
+    background: linear-gradient(180deg,var(--blue2)0%,var(--blue1)100%);
+    background-attachment: fixed;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Estilizar barra de navegación */
+.nav-links{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding:15px;
+    font-size:20px;
+}
+
+.links{
+    text-decoration: none;
+    color: black;
+}
+
