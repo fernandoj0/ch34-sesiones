@@ -50,3 +50,51 @@ h1{
     color: black;
 }
 
+
+/* referenciamos el id del articulo de nuestra nuea seccion */
+#cards-section {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-container {
+    border: 4px solid blue;
+    box-shadow: 0 2px 4px rgba(0,2,2,2.5);
+    max-width: 100%;
+    flex: 0 0 30%;
+    margin: 20px;
+    padding: 20px;
+    background-color: pink;
+}
+
+
+.card-image {
+    width: 100%;
+    /* 4 valores desp horizontal vertical difuminacion */
+    filter: drop-shadow(0 0 20px red);
+}
+
+.card-title {
+    font-size: 30px;
+    color: whitesmoke;
+}
+
+/* pseudoclases es un estado que responde a una accion del usario */
+h3:hover {
+    background-color: black;
+}
+
+/* pseudo elemento */
+h3::first-letter {
+    color: hotpink;
+}
+
+.card-description {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.custom-card {
+    background: linear-gradient(180deg,var(--blue2)0%,var(--blue1)100%);
+    background-attachment: fixed;
+}
