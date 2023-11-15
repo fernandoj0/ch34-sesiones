@@ -136,7 +136,7 @@ luego invocarla para complementar algún tipo de rutina o acción.
 */
 
 /*
-// Función que obtenga un mensaje e imprima en consola.
+Función que obtenga un mensaje e imprima en consola.
 function getMessageAndPrint( option = "console" ){
     const message = getUserMessage();
     if ( option === "console" ) {
@@ -150,7 +150,7 @@ const getUserMessage = () => `Martes de frescura`;
 
 getMessageAndPrint("alert");
 
-// podemos seguir agregando opciones y con ello ifs pero la solucion seran las funciones callback 
+podemos seguir agregando opciones y con ello ifs pero la solucion seran las funciones callback 
 
 */
 
@@ -174,7 +174,7 @@ const refH2 = getH2Message();
     refH2.innerHTML = message;
 };
 
-const getH2Message = ()=> document.getElementById("message");
+const getH2Message = () => document.getElementById("message");
 
 // Función que obtenga un mensaje e imprima en consola o alert o DOM o lo que se me ocurra.
 function getMessageAndPrint( fncPrint  ){
@@ -288,3 +288,93 @@ const mySentence = "Pepe pecas pica papas con un pico y una pala";
 const characterToSearch = "p";
 console.log(countSomeCharacter(mySentence,characterToSearch));
 
+// ------------------- Funciones recursivas -------------
+/*
+    Es una técnica de progrmación donde la función se llama a sí misma. Se debe tener precaución de no entrar en un ciclo infinito.
+
+    En algunos casos, la recursividad puede ser más legible y clara ya que refleja la naturaleza recursiva del problema.
+
+     function funcionRecursiva ( valor ){
+     if( condicionParo ){
+
+    } else {
+            funcionRecursiva( nuevoValor ); // llamada recursiva
+        }
+    }
+
+*/
+
+
+// Realizar una función que calcule el factorial de un número
+//Mostrar en consola el factorial de 
+
+
+function factorialAscendente( number ){
+    let factorial = 1;
+    for(let i = 1; i <= number; i++){
+        factorial = factorial * i;
+    }
+    return factorial;
+}
+  
+function factorialDescendente( number ){
+    let factorial = 1;
+    for(let i = number; i > 0 ; i--){
+      factorial = factorial * i;
+    }
+    return factorial;
+}
+
+const factorialArrowFunction = ( number ) => {
+    
+    let factorial = 1;
+    for(let i = number; i > 0 ; i--){
+      factorial = factorial * i;
+    }
+    return factorial;
+}
+  
+  
+  console.log(`El factorial de 5 es : ${ factorialAscendente(5)}`);
+  console.log(`El factorial de 5 es : ${ factorialDescendente(5)}`);
+
+
+// solución del ejercicio con recursividad
+
+function factorialRecursivo ( number ) {
+  if( number < 1 ){
+    return 1;
+  } else {
+      return number * factorialRecursivo( number - 1 );
+  }
+}
+
+console.log(`Factorial recursivo de 5: ${factorialRecursivo(5)}`);
+
+/*
+  Calcular suma de números pares.
+  Realizar una función recursiva que sume los números pares
+  de un número determinado, hasta el número 1.
+
+  número: 12.
+  Resultado: 12 + 10 + 8 + 6 + 4 + 2 
+
+  número: 7
+  Resultado: 6 + 4 + 2 
+
+  Recomendación: usar módulo %2
+*/
+
+const sumPreviousEvenNumbers = number => {
+    if (number === 2) {
+        return 2;
+    } else {
+        if ( number % 2 === 0){
+            return number + sumPreviousEvenNumbers(number-1);
+        } else {
+            return sumPreviousEvenNumbers(number - 1);
+        }
+    }
+}
+
+console.log(`Suma de numeros pares previos ${sumPreviousEvenNumbers(7)}`);
