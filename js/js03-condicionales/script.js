@@ -227,22 +227,66 @@ console.log(giveTheSeasonSwitch(8));
 
 const giveTheSeasonIf = number => {
     let season = "";
-    if (number>0 && number <13) {
-        if (number <= 2 || number === 12) {
-            return season = "winter";
-        } else if (number <= 5) {
-            return season = "spring";
-        } else if (number <= 8) {
-            return season = "summer";
-        } else {
-            return season = "fall";
-        }
+    
+    if (number <= 2 || number === 12) {
+        season = "winter";
+    } else if (number <= 5) {
+        season = "spring";
+    } else if (number <= 8) {
+        season = "summer";
+    } else if (season <= 11) {
+        season = "fall";
     } else {
-        return season = "mes no valido";
+        season = "mes no valido";
     }
+    return season;
 }
-
+  
 console.log(giveTheSeasonIf(12));
 console.log(giveTheSeasonIf(4));
 console.log(giveTheSeasonSwitch(98));
 console.log(giveTheSeasonSwitch(8));
+
+
+/* 
+ =================== Operador ternario ===============
+ Es el único operador que tiene tres operandos
+
+ Generalmente se usa como opción simplifcada a la sentencia if-else
+ 
+ Sintaxis:
+
+ condición ? (expresionSiCondiciónEsVerdadera : expresiónSiCondiciónEsFalsa);
+
+*/
+
+const subtotal = 1_000_000; // guion bajo no afecta al string o numeros solo ayuda a la lectura
+const esFrontera = true;
+let total;
+
+if ( esFrontera )
+    total = subtotal * 1.08;
+else 
+    total = subtotal*1.16;
+
+console.log(`El total es ${total}`);
+
+// Aplicando el operador ternario
+const totalConIVA = esFrontera ? subtotal * 1.08 : subtotal * 1.16;
+
+console.log(`Operador ternario ${totalConIVA}`);
+
+// Reduccion con el operador ternario
+console.log(`Total:${subtotal * (esFrontera ? 1.08 : 1.16)}`)
+
+
+/*  
+  Evaluar la edad de una persona
+  Si la persona es igual o mayor a 18 : puede votar
+  En caso contrario: no puede votar
+
+*/
+
+const edadPersona = 5;
+
+console.log(`La persona: ${edadPersona>=18 ? `puede votar ` : `no puede votar`}`)
