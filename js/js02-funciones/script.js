@@ -37,7 +37,7 @@ Funciones que son declaradas dentro de la asignacion de una variable
 
 Estas funciones pueden ser anónimas (no tienen nombre)
 
-Las functiones expresadaas no tienen histing, porque no se carga en memoria hasta que se utilice
+Las funciones expresadaas no tienen hoisting, porque no se carga en memoria hasta que se utilice
 */
 
 // console.log( sum(6, 20)); // error cannot access sum before initialization
