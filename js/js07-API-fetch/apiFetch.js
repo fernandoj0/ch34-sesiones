@@ -30,4 +30,4 @@ const getProducts = ( url ) => {
 
 };
 
-getProducts( urlFakeStore );
+// getProducts( urlFakeStore );
