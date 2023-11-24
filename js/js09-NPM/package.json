@@ -12,5 +12,9 @@
     "FETCH"
   ],
   "author": "FernandoJ",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "bootstrap": "^5.3.2"
+  }
 }
