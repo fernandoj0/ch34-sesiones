@@ -1,22 +1,31 @@
 console.log("a ver");
 
 // variable que almacena la url de la api 
-const url = "https://reqres.in/api/users?delay=1";
+const url = "https://reqres.in/api/users?delay=5000";
 
+const startButton = document.getElementById("btn");
 
-const boton = document.getElementById("btn");
-
-boton.addEventListener("click", (event) => {
+// https://www.w3schools.com/jsref/met_element_addeventlistener.asp
+startButton.addEventListener("click", (event) => {
   // Evita el comportamiento predeterminado asociadoa un evento.
   event.preventDefault();
   console.log(event)
   console.log("hola")
+  const localStorageUsarData = localStorage.getItem( "userData" );
+ 
   // enviarDatosAlUsuario(url);
-  almacenarDatosEnLocalStorage(url);
+  //almacenarDatosEnLocalStorage(url);  
+  setTimeout( almacenarDatosEnLocalStorage(url), 10000 );
+   
+  while (localStorageUsarData == null) {
+    disableStartButton(true);
+    showSpinner();
+  } 
   mostrarDatosDelLocalStorage();
 
 
-}); // Fin de sumbit
+});
+
 
 
 
@@ -153,3 +162,19 @@ function mostrarDatosDelLocalStorage() {
     
   }
 }
+
+const showSpinner = () =>{
+  const spinner = `
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>`
+  
+  const zonaEspera = document.getElementById("zona-de-espera");
+  zonaEspera.innerHTML = spinner;
+}
+
+
+const disableStartButton = (valor) => {
+  startButton.disabled = valor;
+} 
+
