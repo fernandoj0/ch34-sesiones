@@ -1,20 +1,123 @@
-console.log("tarea 2 aquí");
+console.log("a ver");
 
-const urlFakeStore = "https://reqres.in/api/users?delay=3";
+// variable que almacena la url de la api 
+const url = "https://reqres.in/api/users?delay=5000";
 
-const almacenarEnLocalStorage = (url) => {
-    fetch (url)
-    .then((response) =>{
+const startButton = document.getElementById("btn");
+
+// https://www.w3schools.com/jsref/met_element_addeventlistener.asp
+startButton.addEventListener("click", (event) => {
+  // Evita el comportamiento predeterminado asociadoa un evento.
+  event.preventDefault();
+  console.log(event)
+  console.log("hola")
+  const localStorageUsarData = localStorage.getItem("userData");
+
+  // enviarDatosAlUsuario(url);
+  //almacenarDatosEnLocalStorage(url);  
+
+
+
+  console.log(document.readyState);
+  almacenarDatosEnLocalStorage(url);
+  mostrarDatosDelLocalStorage();
+
+});
+
+function visualizarEnDOM(datos) {
+    const productsContainer = document.getElementById("products-container");
+  
+    // con el metodo map nos da un nuevo arreglo,
+    // forEach modifica el arreglo original
+    const arreglo = datos.data;
+    console.log(arreglo);
+    // https://getbootstrap.com/docs/5.3/content/tables/
+    const personas = arreglo.map((element, index, array) => `
+    <table class="table"> 
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Email</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Avatar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">${element.id}</th>
+          <td>${element.email}</td>
+          <td>${element.first_name}</td>
+          <td>${element.last_name}</td>
+        <td><img src="${element.avatar}" alt="avatar"/></td>
+      </tr>
+    </tbody>
+    </table>
+    `);
+  
+    console.log(personas);
+  
+    productsContainer.innerHTML = personas.join("");
+  }
+  
+  const almacenarDatosEnLocalStorage = url => {
+    fetch(url)
+      .then((response) => {
         return response.json();
-    })
-    .then((objetoJson) => {
-        const arreglo = objetoJson.data;
-        localStorage.setItem("userData", JSON.stringify(arreglo));
+      })
+      .then((users) => {
+        const arreglo = users.data;
+        console.log(arreglo);
+        const personas = localStorage.setItem("userData", JSON.stringify(arreglo));
         console.log("si llego a almacenar datos");
       })
-    .catch( error => {
+      .catch((error) => {
         console.log(error);
-    });
-}
-
-almacenarEnLocalStorage(urlFakeStore)
+      })
+  
+  }
+  
+  function mostrarEnDom(datos) {
+    const productsContainer = document.getElementById("products-container");
+  
+    // con el metodo map nos da un nuevo arreglo,
+    // forEach modifica el arreglo original
+    // https://getbootstrap.com/docs/5.3/content/tables/
+    const personas = datos.map((element, index, array) => `
+    <table class="table"> 
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Email</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Avatar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">${element.id}</th>
+          <td>${element.email}</td>
+          <td>${element.first_name}</td>
+          <td>${element.last_name}</td>
+        <td><img src="${element.avatar}" alt="avatar"/></td>
+      </tr>
+    </tbody>
+    </table>
+    `);
+  
+    console.log(personas);
+  
+    productsContainer.innerHTML = personas.join("");
+  }
+  
+  function mostrarDatosDelLocalStorage() {
+    // obtenemos el json guardado en el local storage
+    const localStorageUsarData = localStorage.getItem("userData");
+  
+    if (localStorageUsarData !== null) {
+      const users = JSON.parse(localStorageUsarData); // JSON.parse : Analiza un texto en formato JSON y lo transforma en un objeto
+      mostrarEnDom(users);
+  
+    }
+  }
