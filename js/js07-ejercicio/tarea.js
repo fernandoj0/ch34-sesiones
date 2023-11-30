@@ -121,3 +121,54 @@ function visualizarEnDOM(datos) {
   
     }
   }
+
+
+  
+const enviarDatosAlUsuario = url => { // enviarDatosAlUsuario tiene como parametro solo url
+  fetch(url) // apenas empezando la función y ya hace algo con url. En este caso usa fetch. fetch es una promesa
+    .then((response) => {
+      return response.json();
+    })
+    .then((people) => {
+      visualizarEnDOM(people);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+}
+
+function visualizarEnDOM(datos) {
+  const productsContainer = document.getElementById("products-container");
+
+  // con el metodo map nos da un nuevo arreglo,
+  // forEach modifica el arreglo original
+  const arreglo = datos.data;
+  console.log(arreglo);
+  // https://getbootstrap.com/docs/5.3/content/tables/
+  const personas = arreglo.map((element, index, array) => `
+  <table class="table"> 
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Email</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Avatar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">${element.id}</th>
+        <td>${element.email}</td>
+        <td>${element.first_name}</td>
+        <td>${element.last_name}</td>
+      <td><img src="${element.avatar}" alt="avatar"/></td>
+    </tr>
+  </tbody>
+  </table>
+  `);
+
+  console.log(personas);
+
+  productsContainer.innerHTML = personas.join("");
+}
