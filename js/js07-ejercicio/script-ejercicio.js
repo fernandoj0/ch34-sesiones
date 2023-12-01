@@ -11,29 +11,40 @@ const startButton = document.getElementById("btn");
 startButton.onclick = async (event) => {
   // Evita el comportamiento predeterminado asociado a un evento.
   event.preventDefault();
-  console.log(event);
-  const localStorageUsarData = localStorage.getItem("userData");
-  const users = JSON.parse(localStorageUsarData);
+
+  const content = document.getElementById("products-container")
+
+  let localStorageUsarData = localStorage.getItem("userData");
+
+
   const fechaNuevaSolicitud = new Date().getTime();
 
   // checar si el local storage no esta vacio
   if (localStorageUsarData !== null) {
     const fechaSolicitudPrevia = await obtenerFechaDelLocalStorage();
     if (fechaSolicitudPrevia - fechaNuevaSolicitud > 6000) {
-      await showSpinner(true)
-      await mostrarEnDom(users);
+      content.innerHTML = createSpinner();
+      let localStorageUsarData = localStorage.getItem("userData");
+      const users = JSON.parse(localStorageUsarData);
+      const infoParaMostrar = await mostrarEnDom(users);
       await borrarDatosDelLocalStorage();
+      content.innerHTML = infoParaMostrar;
+
     } else {
-      await mostrarUsuariosDelLocalStorage();
+      let localStorageUsarData = localStorage.getItem("userData");
+      const users = JSON.parse(localStorageUsarData);
+      const infoParaMostrar = await mostrarEnDom(users);
+      content.innerHTML = infoParaMostrar;
     }
   } else {
-    await almacenarDatosEnLocalStorage(url);
-    await mostrarUsuariosDelLocalStorage();
+    content.innerHTML = createSpinner();
+    const infoParaAlmacenar = await almacenarDatosEnLocalStorage(url)
+    let localStorageUsarData = localStorage.getItem("userData");
+    const users = JSON.parse(localStorageUsarData);
+    const infoParaMostrar = await mostrarEnDom(users);
+    content.innerHTML = infoParaMostrar;
   }
 
-  sectionDeSpinner.innerHTML = showSpinner(true);
-
-  
 };
 
 const almacenarDatosEnLocalStorage = async url => {
@@ -44,7 +55,8 @@ const almacenarDatosEnLocalStorage = async url => {
     .then((users) => {
       const arreglo = users.data;
       console.log(arreglo);
-      const personas = localStorage.setItem("userData", JSON.stringify(arreglo));
+
+      const infoJsonLocalStorage = localStorage.setItem("userData", JSON.stringify(arreglo));
       const fechaSolicitudOriginal = localStorage.setItem("fechaSolicitud", JSON.stringify(new Date().getTime()));
       console.log("si llego a almacenar datos y la fecha");
     })
@@ -56,12 +68,13 @@ const almacenarDatosEnLocalStorage = async url => {
 
 // funcion para mostrar los datos de un hecho string
 function mostrarEnDom(datos) {
-  const productsContainer = document.getElementById("products-container");
 
+  const arregloObjeto = datos;
+  console.log(arregloObjeto);
   // con el metodo map nos da un nuevo arreglo,
   // forEach modifica el arreglo original
   // https://getbootstrap.com/docs/5.3/content/tables/
-  const personas = datos.map((element, index, array) => `
+  const personas = arregloObjeto.map((element, index, array) => `
   <table class="table"> 
   <thead>
     <tr>
@@ -85,8 +98,7 @@ function mostrarEnDom(datos) {
   `);
 
   console.log(personas);
-
-  productsContainer.innerHTML = personas.join("");
+  return personas;
 
 }
 
@@ -102,13 +114,13 @@ async function borrarDatosDelLocalStorage() {
   localStorage.removeItem("fechaSolicitud");
 }
 
-
-
-const createSpinner = (valor) => {
-    const spinner = `
+const createSpinner = () => {
+  const spinner = `
     <div class="spinner-border text-primary" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>`
+
+  return spinner;
 }
 
 const disableStartButton = (valor) => {
