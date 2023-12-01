@@ -146,7 +146,109 @@ long edadPlaneta = 2_147_483_648L;
 		/*
 		 *  Conversión de tipo de datos
 		 */
+		byte coquita350ml = 60;
 		
+		// upcasting
+		short coquita2000ml = coquita350ml;
+		
+		short pozoleGrande1l = 259;
+		// downcastig
+		byte pozoleBurbuja = (byte)pozoleGrande1l;
+		System.out.println(pozoleBurbuja); // 3
+		
+		//====================================================
+				/*
+				 * Tipo de dato String
+				 * Es un objeto que se define con comillas dobles.
+				 * 
+				 * Si deseas imprimir comillas dobles,se usa el 
+				 * caracter de escape \
+				 *   \b backspace
+				 *   \t tab
+				 *   \n line feed
+				 *   \r carriage return
+				 *   \" double quote
+				 *   \' single quote
+				 *   \\ backslash
+				 */
+		
+		
+		String message = "No te mesas en mi vida."
+				+ "\nLa vida es como una caja de \"chocolates\" ";
+		
+		System.out.println( message );
+		
+		// Convertir string a numeros
+		String edadMascotaStr = "8";
+		
+		System.out.println("Edad mascota + 1 : " + (edadMascotaStr + 1));
+		byte edadMascota = Byte.parseByte(edadMascotaStr);
+		
+		// Convertir numeros a string
+		String numSuerte = String.valueOf( 123 );
+		System.out.println( "Primer caracter de mi numSuerte " + numSuerte.charAt(0) );
+		System.out.println("NUmero de digitos: " + numSuerte.length());
+		
+		// -----------------------------------
+		// Operadores numericos
+		
+		int opA = (int) 5.2;
+		int opB = 6;
+		int suma = opA + opB; // 11
+		System.out.println( suma );
+		
+		int resta = opA - opB; // -1
+		System.out.println( resta );
+		
+		int multiplica = opA * (int) 1.1; // 5
+		double multiplicaDouble = opA * 1.1; // 5.5 java primero realiza la operacion tomando en cuenta los tipos de datos. Se queda grande 
+		System.out.println( multiplicaDouble );
+		
+		int division = opA/opB; // 0 porque los operandos son int
+		System.out.println(division);
+		
+		// double divisionDouble = opA/opB ; // 0.8333 porque int trunca a 0
+		double divisionDouble = 1.0 * opA / opB; // 0.8333333
+		// double divisionDouble = (double)opA / opB; // 0
+		System.out.println(divisionDouble);
+		
+		int residuo = opA % 2; // 1
+		System.out.println(residuo);
+		
+		// Operadores de pre incremento, post decremento
+		int valorInicial = 10;
+		System.out.println("Preincremento: " +  ++valorInicial); // 11
+		System.out.println("Posticremento: " +  valorInicial++); // 11
+		System.out.println("Valor final: "+ valorInicial); // 12
+		
+		valorInicial = 50;
+		System.out.println("Predecremento: " +  --valorInicial); // 49
+		System.out.println("Postdecremento: " +  --valorInicial); // 49
+		System.out.println("Valor final: "+ valorInicial); // 48
+	
+		// Operadores comparativos
+		// El resultado es un booleano
+		// <, <=, >, >=, ==, !=
+		int numEmpleados = 1000;
+		System.out.println("Empleados > 1000 " + (numEmpleados > 1000)); // false
+		System.out.println("Empleados >= 1000 " + (numEmpleados >= 1000)); // true
+		System.out.println("Empleados <= 1000 " + (numEmpleados <= 1000)); // true
+		System.out.println("Empleados == 1000 " + (numEmpleados == 1000)); // true
+		System.out.println("Empleados != 1000 " + (numEmpleados != 1000)); // false
+		
+		// Operadores lógicos
+		   // && (AND) retorna true si ambos operadores son true
+		   // || (OR) retorna true si cualquiera de los operandos es true
+		   // !  (NOT) invierte el resultado booleano
+		
+		boolean a = true;
+		boolean b = false;
+		boolean c = true;
+		
+		System.out.println((a && b) || (a &&c)); // true
+		System.out.println( a || b || c && a ); // true
+		System.out.println(!(a && b) && (!a || c)); // false
+		System.out.println(a || b && c || a && b); // true
 		
 	}
 
