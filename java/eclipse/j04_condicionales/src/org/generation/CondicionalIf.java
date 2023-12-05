@@ -66,22 +66,32 @@ public class CondicionalIf {
 		Scanner myScan;
 		myScan = new Scanner(System.in);
 		
-		System.out.println("Escribe tu nombre: ");
-		String myName = myScan.nextLine(); // lee toda la linea hasta /n
+//		System.out.println("Escribe tu nombre: ");
+//		String myName = myScan.nextLine(); // lee toda la linea hasta /n
+//		
+//		System.out.println("Tu nombre es: " + myName);
+//		
+//		System.out.println("Escribe una frase: ");
+//		String frase = myScan.next(); // lee hasta el delimitador
+//		
+//		System.out.println("La primera palabra de la frase es: " + frase);
+//		
+//		myScan.nextLine(); // consumimos el resto de caracteres (\n)  del buffer
+//		System.out.print("Escribe una cancion: ");
+//		String cancion = myScan.next(); // lee hasta el delimitador
+//		
+//		System.out.print("Tu cancion es: " + cancion);
 		
-		System.out.println("Tu nombre es: " + myName);
+		System.out.println("Dime tu numero favorito");
+		if (myScan.hasNextInt()) { // Verifica si existe un valor numerico
+			int number = myScan.nextInt();
+			System.out.println("Tu numero favorito es: " + number);
+		} else {
+			System.out.println("No introdujiste un numero entero ");
+		}
+		myScan.nextLine(); // limpiar la terminal
 		
-		System.out.println("Escribe una frase: ");
-		String frase = myScan.next(); // lee hasta el delimitador
-		
-		System.out.println("La primera palabra de la frase es: " + frase);
-		
-		
-		System.out.print("Escribe una cancion: ");
-		String cancion = myScan.next(); // lee hasta el delimitador
-		
-		System.out.print("Tu cancion es: " + cancion);
-		
+		myScan.close(); // liberar recursos
 	}
 
 }
