@@ -16,7 +16,19 @@ public class cajero {
 				+ "     9) Salir del cajero");
 		Scanner sc = new Scanner(System.in);
 		int counterToExit = 0;
+		while (sc.hasNextInt() == false) {
+			
+			counterToExit += 1;
+			System.out.println("Escribe un numero entero del 1 al 10");
+			sc = new Scanner(System.in);
+			// agregar un if para decir adios en caso de que counterToExit == 3
+			if (counterToExit == 3) {
+				System.out.println("Adios");
+			}
+		}
+		
 		if (sc.hasNextInt()) {
+			System.out.println("ya me sali del primer while");
 			int opcion = sc.nextInt();
 			
 			while (opcion < 1 || (opcion > 5 && opcion != 9)) {
@@ -34,6 +46,7 @@ public class cajero {
 				switch (opcion) {
 					case 1:
 						retiro(saldoDisponible);
+						hacerOtraConsulta = false;
 						break;
 					case 2:
 						break;
@@ -47,33 +60,36 @@ public class cajero {
 						break;
 					default:
 						System.out.println("Nos vemos");
+						hacerOtraConsulta = false;
 						break;
 				}
 			}
 				
-		} else {
-			System.out.println("Escribe un numero entero del 1 al 10");
-			counterToExit += 1;
 		}
-		
 	}
+	
 	
 	public static void retiro(int cantidadDineroInicial) {
 		System.out.println("Tu saldo disponible a retirar es: " + cantidadDineroInicial);
-		System.out.println("Escribe tu cantidad a retirar: ");
+		System.out.println("Escribe tu cantidad a retirar(sólo una múltiplos de 50 y menor a 6000): ");
 		Scanner sc = new Scanner(System.in);
+		
 		if (sc.hasNextInt()) {
 			int retiro = sc.nextInt();
 			if(retiro % 50 == 0 && retiro <= 6000){
 				System.out.println("procedo a retirar");
 				cantidadDineroInicial -= retiro;
+				System.out.println("Su saldo final es de: " + cantidadDineroInicial);
 			} else {
 				System.out.println("Por favor escribe una cantidad que sea multiplo de 50 y menor a 6000");
 			}
 		} else {
-			System.out.println("Escribe un numero multiplo de 50");
+			System.out.println("Lo siento, no ingresó un cantidad correcta. Intente nuevamente");
 		}
 		
 	}
+	
+	
+	public static void consultarSaldo(cantidadInicial)
 
 }
