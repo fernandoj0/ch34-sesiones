@@ -1,7 +1,6 @@
 package org.generation.app.dto;
 
 import java.sql.Timestamp;
-
 import lombok.*;
 
 @Getter
@@ -11,6 +10,7 @@ import lombok.*;
 public class UserDto {
 	
 	private Long id;
+
 
 	private String firstName;
 

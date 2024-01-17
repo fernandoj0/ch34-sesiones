@@ -29,7 +29,7 @@ public class order_has_products {
 	private int quantity;
 	
 	@ManyToOne
-	@MapsId("oderId")
+	@MapsId("orderId")
 	@JsonIgnoreProperties("user")
 	private Order order;
 	
